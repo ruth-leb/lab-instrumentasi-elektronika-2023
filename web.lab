@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahasiswa Laboratorium Instrumentasi & Elektronika 2023</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 1.8rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.7rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .info-box {
+      background: #f1f5f9;
+      border-radius: 10px;
+      padding: 1rem;
+      display: none;
+    }
+
+    .info-box p {
+      margin: 0.4rem 0;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mahasiswa Laboratorium Instrumentasi & Elektronika 2023</h1>
+  </header>
+
+  <main>
+    <label for="nama">Pilih Nama Mahasiswa:</label>
+    <select id="nama" onchange="tampilkanInfo()">
+      <option value="">-- Pilih Mahasiswa --</option>
+      <option data-nim="H021231007" data-lab="Instrumentasi" data-ket="Aktif dan bertanggung jawab.">Dandi Hartono</option>
+      <option data-nim="H021231041" data-lab="Elektronika" data-ket="Memiliki kemampuan perakitan rangkaian.">Nur Alik Katu</option>
+      <option data-nim="H021231043" data-lab="Elektronika" data-ket="Ahli dalam pemrograman mikrokontroler.">Ansar Mubaroq</option>
+      <option data-nim="H021231027" data-lab="Instrumentasi" data-ket="Fokus pada sistem pengukuran otomatis.">Muh Asnawi</option>
+      <option data-nim="H021231053" data-lab="Instrumentasi" data-ket="Terampil dalam pengolahan data sensor.">Sri Wahyuni SM</option>
+      <option data-nim="H021231052" data-lab="Elektronika" data-ket="Berpengalaman dalam perancangan PCB.">Juliyati Puspita Sari</option>
+      <option data-nim="H021231067" data-lab="Instrumentasi" data-ket="Kreatif dalam membuat sistem monitoring.">Nur Amalia</option>
+      <option data-nim="H021231022" data-lab="Elektronika" data-ket="Fokus pada desain sistem kontrol.">Sheira Abideva</option>
+      <option data-nim="H02131037" data-lab="Instrumentasi" data-ket="Berperan dalam kalibrasi sensor.">Ulva Asriani Nur</option>
+      <option data-nim="H021231042" data-lab="Elektronika" data-ket="Mahir dalam sistem digital.">Yemima Melanie Surya</option>
+      <option data-nim="H021231005" data-lab="Instrumentasi" data-ket="Berperan dalam analisis sinyal.">Ruth Lebang</option>
+      <option data-nim="H021231063" data-lab="Elektronika" data-ket="Ahli dalam perancangan Arduino.">Febrinesya Alfa Tandi Lion</option>
+      <option data-nim="H021231055" data-lab="Instrumentasi" data-ket="Teliti dalam pengujian alat ukur.">Taskiyatunnaps</option>
+      <option data-nim="H021231004" data-lab="Elektronika" data-ket="Terampil merancang sistem sensorik.">Miswanja Batu Padang</option>
+    </select>
+
+    <div class="info-box" id="info">
+      <p><strong>Nama:</strong> <span id="infoNama"></span></p>
+      <p><strong>NIM:</strong> <span id="infoNim"></span></p>
+      <p><strong>Laboratorium:</strong> <span id="infoLab"></span></p>
+      <p><strong>Keterangan:</strong> <span id="infoKet"></span></p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2023 Laboratorium Instrumentasi dan Elektronika | Universitas Hasanuddin
+  </footer>
+
+  <script>
+    function tampilkanInfo() {
+      const select = document.getElementById("nama");
+      const selected = select.options[select.selectedIndex];
+      const infoBox = document.getElementById("info");
+
+      if (select.value) {
+        document.getElementById("infoNama").textContent = selected.text;
+        document.getElementById("infoNim").textContent = selected.getAttribute("data-nim");
+        document.getElementById("infoLab").textContent = selected.getAttribute("data-lab");
+        document.getElementById("infoKet").textContent = selected.getAttribute("data-ket");
+        infoBox.style.display = "block";
+      } else {
+        infoBox.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
